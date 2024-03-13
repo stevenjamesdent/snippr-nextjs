@@ -1,0 +1,39 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint(tablet) {
+        flex-wrap: wrap;
+    }
+}
+
+.column {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: $base-spacing / 2;
+
+    @include breakpoint(tablet, min) {
+        max-width: 800px;
+        padding: ($base-spacing * 2) 0;
+
+        &:not(:last-child) {
+            border-right: solid 0.5px var(--divider-color);
+        }
+    }
+
+    @include breakpoint(tablet) {
+        width: 100%;
+
+        &:not(:last-child) {
+            border-bottom: solid 0.5px var(--divider-color);
+            padding-bottom: var(--section-spacing);
+            margin-bottom: var(--section-spacing);
+        }
+    }
+}

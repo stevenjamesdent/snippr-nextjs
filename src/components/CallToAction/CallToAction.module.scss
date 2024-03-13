@@ -1,0 +1,89 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.wrapper {
+    --cta-gutter: #{$base-spacing * 10};
+    --cta-spacing: #{$base-spacing * 5};
+    --cta-content-width: 50%;
+
+    background-color: var(--section-bg);
+    position: relative;
+
+    &:not(.minimal) {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        max-width: 800px;
+        min-height: 300px;
+        padding: ($base-spacing * 3) 0;
+
+        @include breakpoint(laptop) {
+            overflow: hidden;
+            padding-left: $base-spacing * 5;
+            padding-right: $base-spacing * 5;
+        }
+
+        @include breakpoint(laptop, min) {
+            &:before,
+            &:after {
+                background: var(--section-bg);
+                bottom: 0;
+                content: '';
+                height: 100%;
+                position: absolute;
+                width: calc(var(--cta-gutter) * 2);
+                z-index: 0;
+            }
+        
+            &:before {
+                border-bottom-left-radius: 100vw;
+                border-top-left-radius: 100vw;
+                left: 0;
+                transform: translateX(calc((var(--cta-gutter) * 1.5) * -1));
+            }
+        
+            &:after {
+                border-bottom-right-radius: 100vw;
+                border-top-right-radius: 100vw;
+                right: 0;
+                transform: translateX(calc(var(--cta-gutter) * 1.5));
+            }
+        }
+    }
+}
+
+.content {
+    margin-left: auto;
+    position: relative;
+    width: var(--cta-content-width);
+    z-index: 1;
+
+    @include breakpoint(laptop) {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+.image {
+    align-items: flex-end;
+    bottom: 0;
+    display: flex;
+    height: calc(100% + var(--section-spacing));
+    position: absolute;
+    right: calc(var(--cta-content-width));
+    width: calc(120% - (var(--cta-content-width) + var(--cta-spacing)));
+    z-index: 1;
+
+    img {
+        inset: unset !important;
+        object-fit: contain;
+        object-position: bottom center;
+    }
+
+    @include breakpoint(laptop) {
+        opacity: 0.5;
+        right: $base-spacing * 3;
+        max-height: 90%;
+    }
+}

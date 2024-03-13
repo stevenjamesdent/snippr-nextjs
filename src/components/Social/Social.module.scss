@@ -1,0 +1,28 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.wrapper {
+    background-color: $white;
+    border-radius: 10px;
+    border: 0.5px solid $grey_x_light;
+    box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.35);
+    padding: $base-spacing * 2;
+}
+
+.icon {
+    background-color: var(--bg-accent-primary);
+    border-radius: 100vw;
+    color: var(--text-color);
+    padding: $base-spacing * 0.75;
+    transition: all 0.25s ease;
+
+    svg {
+        fill: currentColor;
+    }
+    
+    &:hover,
+    &_active {
+        background-color: var(--bg-accent-secondary);
+        color: var(--accent-primary);
+    }
+}

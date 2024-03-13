@@ -1,0 +1,13 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.wrapper {
+
+}
+
+.slide {
+    img {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,50 @@
+//
+// Theme
+//
+//
+// get-theme($theme, $overrides)
+//
+// $theme - The slug/id of the desired theme corresponding to an object from the 'theme-map' in settings > themes
+// $overrides - Custom theme variables, can be totally new or can override existing variables in the given theme
+//
+// Dependencies
+// -------------------------------
+@use '@/styles/settings' as *;
+// -------------------------------
+
+@mixin get-theme($theme-name) {
+    @if(map-has-key($themes, $theme-name)) {
+        $theme: map-get($themes, $theme-name);
+
+        @each $setting-name, $setting-value in $theme {
+            @if $setting-name == breakpoints {
+                $theme-breakpoints: $setting-value;
+
+                @each $breakpoint, $responsive-variables in $theme-breakpoints {    
+                    @include breakpoint($breakpoint) {
+                        @each $responsive-variable-name, $responsive-variable-value in $responsive-variables {
+                            #{$responsive-variable-name}: $responsive-variable-value;
+                        }
+                    }
+                }
+            } @if $setting-name == extends {
+                @if $setting-name == $theme-name {
+                    @error "Theme cannot extend itself: '#{$theme-name}'"
+                }
+
+                @each $base-theme in $setting-value {
+                    $base-theme-settings: map-get($themes, $base-theme);
+
+                    @each $base-setting-name, $base-setting-value in $base-theme-settings {
+                        #{$base-setting-name}: $base-setting-value;
+                    }
+                }
+            } @else {
+                #{$setting-name}: $setting-value;
+            }
+        }
+    }
+    @else {
+        @error "Theme '#{$theme}' was not found in the theme-map '$themes' in settings > _themes.scss";
+    }
+}

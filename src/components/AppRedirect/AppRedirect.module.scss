@@ -1,0 +1,24 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.redirect {
+    @include get-theme(light);
+    align-items: center;
+    background: linear-gradient(to bottom right, $charcoal 0%, $navy 100%);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: var(--navbar-gutter);
+}
+
+.content {
+    border-radius: 10px;
+    background: transparentize($charcoal, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: $base-spacing * 3;
+    border: 0.5px solid transparentize($cyan_light, 0.5);
+}

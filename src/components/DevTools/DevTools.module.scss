@@ -1,0 +1,22 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.wrapper {
+    position: relative;
+    z-index: 999999;
+}
+
+.breakpoint {
+    background: transparentize($charcoal, 0.25);
+    border-bottom-left-radius: $base-border-radius;
+    border-bottom-right-radius: $base-border-radius;
+    left: $base-spacing;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+
+    &:hover {
+        pointer-events: none;
+        visibility: hidden;
+    }
+}

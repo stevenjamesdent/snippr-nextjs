@@ -1,0 +1,23 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.wrapper {
+    align-items: center;
+    background-color: $navy_dark;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: get-layer(top);
+}
+
+.message {
+    background-color: $navy;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px -15px rgba(0, 0, 0, 0.5);
+    padding: $base-spacing * 2;
+    text-align: center;
+}

@@ -1,0 +1,59 @@
+$base-spacing: 1rem;
+$base-border-radius: 4px;
+
+$max-site-width: 1800px;
+
+$input-padding: $base-spacing;
+
+// IMPORTANT: Breakpoint changes must be reflected in tailwind config.
+// -------------------------
+$breakpoints: (
+    'mobile-s':     400px,
+    'mobile':       650px,
+    'mobile-l':     750px,
+    'tablet':       900px,
+    'tablet-l':     1000px,
+    'laptop':       1200px,
+    'laptop-l':     1550px,
+    'desktop':      1900px,
+    'desktop-l':    2100px
+);
+// -------------------------
+
+$layers: (
+    background: (),
+    page: (
+        main,
+        banner,
+    ),
+    block: (
+        background,
+        foreground,
+        content
+    ),
+    navbar: (),
+    alerts: (),
+    overlay: (),
+    navigation: (
+        background,
+        foreground,
+        content
+    ),
+    modals: (
+        background,
+        foreground,
+        content
+    ),
+    top: ()
+);
+
+$spacing-sizes: (
+    0:      0,
+    'xs':   #{$base-spacing / 5},
+    's':    #{$base-spacing / 2},
+    'm':    #{$base-spacing},
+    'l':    #{$base-spacing * 2},
+    'xl':   #{$base-spacing * 5},
+    'xxl':  #{$base-spacing * 10},
+    'a':    'auto'
+);

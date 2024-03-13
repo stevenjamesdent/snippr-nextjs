@@ -1,0 +1,15 @@
+name: Staging
+
+on:
+  push:
+    branches: [ "staging" ]
+
+jobs:
+  build:
+    name: Sync Storyblok Components (Development to Staging)
+    uses: snippr-uk/actions/.github/workflows/sync-storyblok.yml@main
+    secrets:
+      STORYBLOK_AUTH_TOKEN: ${{ secrets.STORYBLOK_AUTH_TOKEN }}
+    with:
+      source_space_id: 254583
+      target_space_id: 254614

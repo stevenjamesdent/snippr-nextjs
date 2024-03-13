@@ -1,0 +1,58 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+@mixin hover-styles() {
+    --accent: var(--accent-secondary);
+
+    border-color: transparent;
+    box-shadow: 0 10px 20px -15px rgba(0, 0, 0, 0.75);
+
+    .image {
+        opacity: 1;
+        border-bottom-right-radius: 100px;
+    }
+}
+
+.wrapper {
+    --accent: var(--accent-primary);
+
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    border: 0.5px solid var(--divider-color);
+    max-width: 400px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+
+    &:hover { @include hover-styles(); }
+    @include breakpoint(tablet-l) { @include hover-styles(); }
+}
+
+.body {
+    padding: ($base-spacing * 2) ($base-spacing * 3);
+}
+
+.content {
+    font-size: var(--font-small);
+    line-height: 1.75;
+}
+
+.cta {
+    color: var(--accent);
+    display: block;
+    font-size: var(--font-small);
+    font-weight: $weight-regular;
+    margin-top: $base-spacing;
+    transition: all 0.25s ease;
+}
+
+.image {
+    height: 250px;
+    opacity: 0.75;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.25s ease;
+
+    img {
+        object-fit: cover;
+    }
+}

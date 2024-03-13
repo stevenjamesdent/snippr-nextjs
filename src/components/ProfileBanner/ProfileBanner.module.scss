@@ -1,0 +1,69 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.wrapper {
+    --border-radius: 250px;
+    --avatar-size: calc(var(--border-radius) * 1.25);
+
+    align-items: flex-end;
+    background: $brand-gradient;
+    border-bottom-left-radius: var(--border-radius);
+    display: flex;
+    justify-content: flex-start;
+    margin-top: calc(var(--navbar-height) * -1);
+    min-height: calc(var(--avatar-size) * 1.65);
+    padding: 0 var(--gutter-profile);
+    position: relative;
+}
+
+.cover {
+    border-bottom-left-radius: var(--border-radius);
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: get-layer(block, background);
+
+    img {
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.15;
+    }
+}
+
+.avatar {
+    border-radius: 40px;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.75);
+    height: var(--avatar-size);
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    width: var(--avatar-size);
+    z-index: get-layer(block, foreground);
+}
+
+.qr {
+    align-items: center;
+    background: transparentize($navy_dark, 0.25);
+    border-radius: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: $base-spacing / 1.5;
+    margin-bottom: $base-spacing * 2;
+    margin-left: auto;
+    padding: $base-spacing * 1.25;
+    position: relative;
+    text-align: center;
+    z-index: get-layer(block, foreground);
+
+    svg {
+        width: 125px;
+        height: 125px;
+    }
+
+    @include breakpoint(mobile) {
+        display: none;
+    }
+}

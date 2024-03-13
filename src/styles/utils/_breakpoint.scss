@@ -1,0 +1,48 @@
+@use '@/styles/settings' as *;
+
+@function get_breakpoint($value) {
+    $breakpoint: 0;
+
+    @if map-has-key($breakpoints, $value) {
+        $breakpoint: map-get($breakpoints, $value);
+    }
+    @else if type-of($value) == 'number' {
+        $breakpoint: $value;
+    }
+
+    @return $breakpoint;
+}
+
+
+@mixin breakpoint($query_a_value, $query_type: max, $query_b_value: 0) {
+    $query_a_size: 0;
+    $query_b_size: 0;
+
+    $query_a: 0;
+    $query_b: 0;
+
+    @if $query_type == minmax {
+        $query_a_size: get_breakpoint($query_a_value);
+        $query_b_size: get_breakpoint($query_b_value);
+        $query_a: $query_a_size;
+        $query_b: $query_b_size;
+
+        @media screen and (min-width: $query_a) and (max-width: $query_b) {
+            @content;
+        }
+    }
+    @else {
+        $query_a_size: get_breakpoint($query_a_value);
+    
+        @if $query_type == max {
+            $query_a: $query_a_size - 1px;
+        }
+        @else {
+            $query_a: $query_a_size;
+        }
+
+        @media screen and (#{$query_type}-width: $query_a) {
+            @content;
+        }
+    }
+}

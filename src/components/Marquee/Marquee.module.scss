@@ -1,0 +1,9 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.marquee {
+    background-color: var(--section-bg);
+    padding: ($base-spacing * 2) 0;
+    user-select: none;
+    width: 100%;
+}

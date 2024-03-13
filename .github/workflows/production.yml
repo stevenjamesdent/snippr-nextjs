@@ -1,0 +1,15 @@
+name: Production
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Sync Storyblok Components (Staging to Production)
+    uses: snippr-uk/actions/.github/workflows/sync-storyblok.yml@main
+    secrets:
+      STORYBLOK_AUTH_TOKEN: ${{ secrets.STORYBLOK_AUTH_TOKEN }}
+    with:
+      source_space_id: 254614
+      target_space_id: 254613

@@ -1,0 +1,118 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.banner {
+    --banner-gutter-x: var(--gutter-medium);
+    --banner-gutter-y: 10vh;
+    --banner-media-height: 100%;
+    --banner-media-width: 50%;
+    --banner-min-height: 0px;
+
+    align-items: center;
+    background-color: $navy;
+    background-image: $brand-gradient;
+    display: flex;
+    margin-top: calc(var(--navbar-height) * -1);
+    min-height: calc(var(--banner-min-height) + var(--banner-offset));
+    overflow: hidden;
+    padding: calc((var(--banner-offset) / 2) + var(--banner-gutter-y)) var(--banner-gutter-x);
+    position: relative;
+    z-index: get-layer(page, banner);
+    
+    &_hero {
+        --banner-min-height: 100vh;
+        --banner-gutter-y: var(--gutter-small);
+        --banner-media-width: 60%;
+
+        background-image: linear-gradient(to bottom right, transparentize($charcoal, 0.15) 0%, $navy 100%);
+        border-bottom-left-radius: var(--banner-offset);
+        border-bottom-right-radius: var(--banner-offset);
+        box-shadow: 0 0 30px 10px transparentize($midnight, 0.5);
+
+        @include breakpoint($max-site-width, min) {
+            --banner-min-height: #{$max-site-width * 0.55};
+        }
+
+        @include breakpoint(laptop-l) {
+            --banner-media-width: 55%;
+        }
+    
+        @include breakpoint(laptop) {
+            --banner-media-width: 100%;
+            --banner-media-height: 50vh;
+            --banner-gutter-y: var(--gutter-large);
+
+            align-items: flex-start;
+            min-height: var(--banner-min-height);
+            padding: calc(var(--banner-offset) + var(--banner-gutter-y)) var(--banner-gutter-x) 0;
+
+            .content {
+                margin-bottom: calc(var(--banner-media-height) / 2);
+            }
+        }
+    }
+
+    &_default {
+        @include get-theme(light);
+    }
+}
+
+.content {
+    position: relative;
+    max-width: calc(95% - var(--banner-media-width));
+    z-index: get-layer(block, content);
+
+    @include breakpoint(laptop) {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+.cutout {
+    bottom: 0;
+    fill: $cyan_x_light;
+    filter: drop-shadow(-10px -10px 40px $charcoal);
+    max-height: var(--banner-media-height);
+    max-width: var(--banner-media-width);
+    position: absolute;
+    right: 0;
+    z-index: get-layer(block, background);
+}
+
+.image {
+    object-fit: var(--object-fit);
+    object-position: var(--object-position);
+
+    &_wrapper {
+        --object-fit: contain;
+        --object-position: bottom right;
+
+        bottom: 0;
+        height: calc((var(--banner-media-height) + var(--banner-offset)) * 0.85);
+        width: var(--banner-media-width);
+        position: absolute;
+        right: 0;
+        z-index: get-layer(block, foreground);
+
+        &_minimal {
+            --object-fit: cover;
+            --object-position: center;
+
+            border-bottom-left-radius: 500px;
+            bottom: auto;
+            height: calc(var(--banner-media-height) - var(--navbar-height));
+            max-width: 800px;
+            opacity: 0.5;
+            overflow: hidden;
+            top: var(--navbar-height);
+
+            @include breakpoint(laptop) {
+                opacity: 0.25;
+            }
+
+            @include breakpoint(mobile-l) {
+                display: none;
+            }
+        }
+    }
+}

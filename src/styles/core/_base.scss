@@ -1,0 +1,62 @@
+/*---------------------------------*/
+/*---------- Base Styles ----------*/
+/*---------------------------------*/
+
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+*,
+*:before,
+*:after {
+    backface-visibility: hidden;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    @include get-theme(default);
+    background-color: $off_white;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-standard);
+    overflow-x: hidden;
+    position: relative;
+
+    &.noscroll {
+        overflow: hidden;
+    }
+}
+
+.page {
+    box-shadow: 0 0 20px -15px rgba(0, 0, 0, 0.25);
+    font-family: $font-base !important;
+    margin: auto;
+    max-width: $max-site-width;
+    padding-top: var(--navbar-height);
+    position: relative;
+}
+
+main {
+    z-index: get-layer(page, main);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#tidio-chat,
+.iubenda-tp-btn {
+    z-index: get-layer(overlay);
+}

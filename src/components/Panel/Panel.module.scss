@@ -1,0 +1,10 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.panel {
+    --cap-width: var(--gutter-small);
+
+    background-color: var(--bg-accent-primary);
+    border-radius: $base-border-radius;
+    position: relative;
+}

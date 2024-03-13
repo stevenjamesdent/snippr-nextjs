@@ -1,0 +1,27 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.heading {
+    &_h1 { @extend %heading_1 };
+    &_h2 { @extend %heading_2 };
+    &_h3 { @extend %heading_3 };
+    &_h4 { @extend %heading_4 };
+    &_h5 { @extend %heading_5 };
+    &_h6 { @extend %heading_6 };
+
+    &_giga {
+        @include font-size(giga);
+    }
+
+    &_mega {
+        @include font-size(mega);
+    }
+
+    &_center {
+        text-align: center;
+    }
+
+    &_uppercase {
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,26 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.snippr.snipprapp",
+            "sha256_cert_fingerprints": [
+                "97:F0:D7:FD:0D:A2:7F:0E:BA:DF:F7:E4:A8:F0:B6:F9:CB:F5:6B:7A:90:B2:46:D2:30:85:43:52:DD:6D:E0:AB"
+            ]
+        }
+    },
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.snippr.snipprbizapp",
+            "sha256_cert_fingerprints": [
+                "D8:85:FC:3B:9A:3A:3B:0D:35:A6:D5:9A:20:3C:C7:AC:6F:C2:25:B9:DF:6C:4A:1C:6D:40:E4:E0:21:08:E6:56"
+            ]
+        }
+    }
+]

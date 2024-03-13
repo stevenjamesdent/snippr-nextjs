@@ -1,0 +1,22 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.divider {
+    --divider-thickness: 0.5px;
+
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-style: solid;
+    border-top-width: var(--divider-thickness);
+    border-top-color: var(--divider-color);
+    width: 100%;
+
+    &_vertical {
+        border-right-width: var(--divider-thickness);
+        border-right-color: var(--divider-color);
+        border-top-width: 0;
+        height: 100%;
+        width: auto;
+    }
+}

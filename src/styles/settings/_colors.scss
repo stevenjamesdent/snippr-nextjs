@@ -1,0 +1,41 @@
+$charcoal: #1E1E1E;
+$cyan_light: #00FFFF;
+$cyan_x_light: #E8F8F9;
+$cyan: #00AEBC;
+$ghost_white: transparentize(#fff, 0.35);
+$grey_dark: #4D4D4D;
+$grey_light: #CCCCCC;
+$grey_x_dark: #333333;
+$grey_x_light: #E6E6E6;
+$grey: #808080;
+$midnight: #161616;
+$navy_dark: #21232D;
+$navy: #2C324A;
+$off_white: #F2F2F2;
+$red_faded: #FFEFEF;
+$red_light: #FF6B6B;
+$red: #D30000;
+$white: #FFFFFF;
+
+$brand-gradient: linear-gradient(to right, $navy_dark 0%, $navy 90%);
+
+$colors: (
+    charcoal: $charcoal,
+    cyan-light: $cyan_light,
+    cyan-x-light: $cyan_x_light,
+    cyan: $cyan,
+    ghost-white: $ghost_white,
+    grey-dark: $grey_dark,
+    grey-light: $grey_light,
+    grey-x-dark: $grey_x_dark,
+    grey-x-light: $grey_x_light,
+    grey: $grey,
+    midnight: $midnight,
+    navy_dark: $navy_dark,
+    navy: $navy,
+    off-white: $off_white,
+    red-faded: $red_faded,
+    red-light: $red_light,
+    red: $red,
+    white: $white,
+);

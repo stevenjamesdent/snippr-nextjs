@@ -1,0 +1,42 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.menu {
+    display: inline-flex;
+    flex-direction: column;
+    list-style: none;
+    margin: unset;
+    padding: unset;
+
+    &_horizontal {
+        align-items: center;
+        flex-direction: row;
+
+        .link {
+            padding-left: $base-spacing;
+            padding-right: $base-spacing;
+        }
+    }
+
+    &_spaced {
+        gap: $base-spacing;
+    }
+}
+
+.link {
+    color: var(--link-color);
+    cursor: pointer;
+    font-weight: $weight-light;
+    letter-spacing: 0.5px;
+    padding-bottom: $base-spacing;
+    padding-top: $base-spacing;
+    transition: all 0.25s ease;
+
+    &:hover {
+        color: var(--accent-primary);
+    }
+
+    &_active {
+        color: var(--accent-secondary);
+    }
+}

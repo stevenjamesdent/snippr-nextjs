@@ -1,0 +1,37 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.accordion {
+    --header-bg: var(--bg-accent-primary);
+    --accordion-gutter: #{$base-spacing * 3};
+
+    border-radius: $base-border-radius;
+    border: 1px solid var(--header-bg);
+    overflow: hidden;
+    transition: all 0.25s ease;
+    user-select: none;
+
+    &_active {
+        --header-bg: var(--accent-primary);
+
+        .header {
+            color: $white;
+        }
+
+        .content {
+            display: block;
+        }
+    }
+}
+
+.header {
+    background-color: var(--header-bg);
+    cursor: pointer;
+    padding: ($base-spacing * 2) var(--accordion-gutter);
+    transition: all 0.25s ease;
+}
+
+.content {
+    padding: var(--accordion-gutter);
+    display: none;
+}

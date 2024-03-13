@@ -1,0 +1,135 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.button {
+    --button-border: var(--button-bg);
+
+    @include font-size(standard);
+    align-items: center;
+    background: var(--button-bg);
+    border-radius: 100vw;
+    border: 0.5px solid var(--button-border);
+    color: var(--button-color);
+    cursor: pointer;
+    display: inline-flex;
+    font-weight: $weight-regular;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    outline: none;
+    padding: ($base-spacing / 1.5) ($base-spacing * 3);
+    position: relative;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.35, 1);
+    user-select: none;
+
+    &_small {
+        font-size: var(--font-small);
+        padding: ($base-spacing / 2) ($base-spacing * 2);
+    }
+
+    &_primary {
+        --button-bg: #{$cyan};
+        --button-color: #{$white};
+
+        &:hover {
+            --button-bg: #{$navy};
+            --button-color: #{$cyan_light};
+        }
+    }
+
+    &_secondary {
+        --button-bg: #{$red_light};
+        --button-color: #{$navy};
+
+        &:hover {
+            --button-bg: #{$navy};
+            --button-color: #{$red_light};
+        }
+    }
+
+    &_tertiary {
+        --button-bg: #{$navy_dark};
+        --button-color: #{$white};
+
+        &:hover {
+            --button-bg: #{$navy};
+            --button-color: #{$cyan_light};
+        }
+    }
+
+    &_cta {
+        --button-bg: transparent;
+        --button-border: var(--cta-color);
+        --button-color: var(--cta-text-color);
+
+        &:hover {
+            --button-bg: var(--cta-color-active);
+            --button-border: var(--cta-color-active);
+            --button-color: var(--cta-text-color-active);
+        }
+    }
+
+    &_snippr {
+        --button-bg: #{transparentize($red_light, 0.8)};
+        --button-border: transparent;
+        --button-color: #{$red_light};
+
+        &:hover {
+            --button-bg: #{transparentize($red_light, 0.65)};
+            --button-color: #{$white};
+        }
+    }
+
+    &_biz {
+        --button-bg: #{transparentize($cyan_light, 0.8)};
+        --button-border: transparent;
+        --button-color: #{$cyan_light};
+
+        &:hover {
+            --button-bg: #{transparentize($cyan_light, 0.65)};
+            --button-color: #{$white};
+        }
+    }
+
+    &_glass {
+        --button-bg: transparent;
+        --button-border: transparent;
+        --button-color: var(--accent-primary);
+
+        overflow: hidden;
+        
+        &:before {
+            background-color: var(--accent-primary);
+            content:'';
+            height: 100%;
+            left: 0;
+            opacity: 0.2;
+            position: absolute;
+            top: 0;
+            transition: all 0.25s ease;
+            width: 100%;
+            z-index: -1;
+        }
+
+        &:hover {
+            --button-color: #{$white};
+
+            &:before {
+                background-color: var(--accent-secondary);
+                opacity: 0.35;
+            }
+        }
+    }
+
+    &_shadowed {
+        box-shadow: 10px 10px 20px 0 transparentize($charcoal, 0.5);
+    }
+
+    &_unstyled {
+        background: none;
+        border: none;
+        display: inline-flex;
+        outline: none;
+        padding: unset;
+    }
+}

@@ -1,0 +1,31 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.wrapper {
+    --accent-color: #{$navy};
+
+    align-items: center;
+    color: var(--accent-color);
+    display: flex;
+    gap: $base-spacing / 2;
+
+    &_good {
+        --accent-color: #{$cyan};
+    }
+
+    &_bad {
+        --accent-color: #{$red_light};
+    }
+
+    &_new {
+        --accent-color: #{$grey};
+    }
+
+    svg {
+        fill: var(--accent-color);
+    }
+}
+
+.background {
+    --accent-color: #{$grey_light};
+}

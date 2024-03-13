@@ -1,0 +1,16 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.hero {
+    @include get-theme(light);
+    align-items: center;
+    background: linear-gradient(to bottom right, $charcoal 0%, $navy 100%);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.content {
+    padding: 0 var(--section-gutter);
+}

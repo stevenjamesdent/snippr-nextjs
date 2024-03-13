@@ -1,0 +1,13 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.wrapper {
+    align-items: center;
+    background-color: var(--section-bg);
+    background-image: linear-gradient(to right, transparentize($charcoal, 0.15) 0%, $navy 90%);
+    display: flex;
+    justify-content: center;
+    margin-top: calc(var(--navbar-height) * -1);
+    min-height: 100vh;
+    padding: calc(var(--navbar-height) * 2) 0;
+}

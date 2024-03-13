@@ -1,0 +1,98 @@
+// Dependencies
+// -------------------------------
+@use 'colors' as *;
+@use 'typography' as *;
+// -------------------------------
+
+// Theme Definitions
+// -------------------------------
+
+$default-theme: (
+    --accent-primary: $cyan,
+    --accent-secondary: $red_light,
+    --bg-accent-primary: $off_white,
+    --bg-accent-secondary: $grey_light,
+    --card-bg: $white,
+    --cta-color-active: $red_light,
+    --cta-color: $red_light,
+    --cta-text-color-active: $charcoal,
+    --cta-text-color: $charcoal,
+    --divider-color: $grey_light,
+    --form-bg: transparent,
+    --heading-color: $grey_x_dark,
+    --heading-font-family: $font-base,
+    --input-bg: $white,
+    --label-color: $charcoal,
+    --link-color: $charcoal,
+    --section-bg-inverse: $charcoal,
+    --section-bg: transparent,
+    --text-color: $grey_dark,
+);
+
+$themes: (
+    default: $default-theme,
+    alt: (
+        --bg-accent-primary: transparentize($grey_light, 0.5),
+        --bg-accent-secondary: $white,
+        --form-bg: $white,
+        --section-bg-inverse: $charcoal,
+        --section-bg: $off_white,
+    ),
+    error: (
+        --accent-primary: $red_light,
+        --input-bg: $red_faded,
+        --label-color: $red_light,
+        --text-color: $red_light,
+    ),
+    light: (
+        --accent-primary: $cyan-light,
+        --cta-color-active: $cyan_light,
+        --card-bg: transparentize($white, 0.975),
+        --cta-color: $cyan_light,
+        --cta-text-color-active: $charcoal,
+        --cta-text-color: $cyan_light,
+        --divider-color: transparentize($ghost_white, 0.5),
+        --heading-color: $off_white,
+        --label-color: $white,
+        --link-color: $white,
+        --text-color: $white,
+    ),
+    snippr: (
+        --accent-primary: $red_light,
+        --accent-secondary: $red,
+        --cta-color-active: $red_light,
+        --cta-color: $red_light,
+        --cta-text-color-active: $white,
+        --cta-text-color: $white,
+    ),
+    snippr-dark: (
+        extends: (
+            light,
+            snippr
+        ),
+        --bg-accent-primary: $navy_dark,
+        --bg-accent-secondary: transparentize($white, 0.95),
+        --form-bg: $navy_dark,
+        --section-bg: $navy,
+    ),
+    biz: (
+        --accent-primary: $cyan,
+        --accent-secondary: $cyan_light,
+        --cta-color-active: $cyan,
+        --cta-color: $cyan,
+        --cta-text-color-active: $white,
+        --cta-text-color: $white,
+        --link-color: $cyan,
+    ),
+    biz-dark: (
+        extends: (
+            light,
+            biz
+        ),
+        --section-bg: $charcoal,
+        --bg-accent-primary: transparentize($white, 0.95),
+        --form-bg: transparentize($white, 0.95),
+        --bg-accent-secondary: $midnight,
+        --accent-primary: $cyan_light,
+    ),
+);

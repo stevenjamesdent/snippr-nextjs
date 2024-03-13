@@ -1,0 +1,101 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+$transition: all 0.25s ease;
+
+.features {
+    &_grid {
+        --columns: 4;
+        --feature-gutter: #{$base-spacing * 1.5};
+
+        display: grid;
+        grid-template-columns: repeat(var(--columns), 1fr);
+
+        @include breakpoint(desktop) {
+            --columns: 3;
+        }
+
+        @include breakpoint(laptop) {
+            --columns: 2;
+        }
+
+        @include breakpoint(mobile-l, min) {
+            column-gap: $base-spacing * 4;
+            row-gap: $base-spacing;
+        }
+
+        @include breakpoint(mobile-l) {
+            --columns: 1;
+        }
+    }
+
+    &_stacked {
+        display: flex;
+        flex-direction: column;
+        gap: $base-spacing * 2;
+    }
+}
+
+.item {
+    --icon-fill: var(--text-color);
+
+    color: var(--text-color);
+    cursor: default;
+
+    &_inline {
+        align-items: center;
+        display: flex;
+        gap: $base-spacing;
+
+        .title {
+            margin: 0;
+        }
+
+        .icon {
+            background-color: var(--bg-accent-primary);
+            border-radius: 100vw;
+            padding: $base-spacing * 0.75;
+        }
+    }
+
+    &_stacked {
+        @include breakpoint(mobile-l, min) {
+            margin-left: calc(var(--feature-gutter) * -1);
+            margin-right: calc(var(--feature-gutter) * -1);
+            padding: var(--feature-gutter);
+
+            &:hover {
+                --icon-fill: var(--accent-primary);
+
+                background: var(--bg-accent-primary);
+                border-radius: $base-border-radius;
+                box-shadow: 0 0 10px -5px transparentize(#000, 0.5);
+                transition: $transition;
+            }
+        }
+
+        @include breakpoint(mobile-l) {
+            &:not(:last-child) {
+                border-bottom: 0.5px solid var(--divider-color);
+                padding-bottom: $base-spacing * 3;
+                margin-bottom: $base-spacing * 3;
+            }
+        }
+    }
+}
+
+.title {
+    color: var(--heading-color);
+    display: block;
+    font-weight: $weight-semibold;
+    margin: ($base-spacing / 1.5) 0;
+}
+
+.icon {
+    svg {
+        color: var(--icon-fill);
+        height: 2rem;
+        transition: $transition;
+        width: 2rem;
+    }
+}

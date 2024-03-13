@@ -1,0 +1,85 @@
+$font-base: var(--font-poppins);
+$font-logo: var(--font-logo);
+$font-script: var(--font-script);
+
+$weight-thin: 100;
+$weight-extralight: 200;
+$weight-light: 300;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+$weight-extrabold: 800;
+$weight-black: 900;
+
+$font-sizes: (
+    'h1':           var(--h1),
+    'h2':           var(--h2),
+    'h3':           var(--h3),
+    'h4':           var(--h4),
+    'h5':           var(--h5),
+    'h6':           var(--h6),
+    
+    'small':        var(--font-small),
+    'standard':     var(--font-standard),
+    'large':        var(--font-large),
+    'mega':         var(--font-mega),
+    'giga':         var(--font-giga),
+    'ludicrous':    var(--font-ludicrous),
+);
+
+@mixin font-size($size, $important: null) {
+    font-size: #{map-get($font-sizes, $size)} $important;
+}
+
+%heading {
+    color: var(--heading-color);
+    display: block;
+    line-height: 1.25;
+    text-transform: capitalize;
+
+    &:not(.heading_collapse) {
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+    
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+%heading_1 {
+    @extend %heading;
+    @include font-size(h1);
+    font-weight: $weight-bold;
+}
+
+%heading_2 {
+    @extend %heading;
+    @include font-size(h2);
+    font-weight: $weight-bold;
+}
+
+%heading_3 {
+    @extend %heading;
+    @include font-size(h3);
+    font-weight: $weight-semibold;
+}
+
+%heading_4 {
+    @extend %heading;
+    @include font-size(h4);
+    font-weight: $weight-semibold;
+}
+
+%heading_5 {
+    @extend %heading;
+    @include font-size(h5);
+    font-weight: $weight-semibold;
+}
+
+%heading_6 {
+    @extend %heading;
+    @include font-size(h6);
+    font-weight: $weight-semibold;
+}

@@ -1,0 +1,97 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.content {
+    color: var(--text-color);
+    font-weight: $weight-light;
+    
+    &_center {
+        text-align: center;
+    }
+
+    &_right {
+        text-align: right;
+    }
+
+    h1 { @extend %heading_1 };
+    h2 { @extend %heading_2 };
+    h3 { @extend %heading_3 };
+    h4 { @extend %heading_4 };
+    h5 { @extend %heading_5 };
+    h6 { @extend %heading_6 };
+
+    p {
+        margin-bottom: $base-spacing;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    a {
+        color: var(--accent-primary);
+        cursor: pointer;
+        display: inline-block;
+        font-weight: $weight-regular;
+        text-decoration: underline;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+        margin-bottom: $base-spacing;
+        margin-left: 0;
+        margin-top: 0;
+        padding-left: $base-spacing;
+
+        li {
+            margin-bottom: $base-spacing / 3;
+            position: relative;
+
+            p {
+                display: inline-block;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    ul {
+        li {
+            padding-left: $base-spacing * 2;
+
+            &::before {
+                background-color: var(--text-color);
+                border-radius: 100vw;
+                content: '';
+                display: inline-block;
+                height: 0.4em;
+                margin-left: -2em;
+                position: absolute;
+                top: 0.65em;
+                width: 0.4em;
+            }
+        }
+    }
+
+    ol {
+        counter-reset: item;
+
+        li {
+            counter-increment: item;
+            margin-bottom: 5px;
+            padding-left: $base-spacing * 2;
+
+            &:before {
+                border-radius: 100%;
+                color: var(--accent-primary);
+                content: counter(item) '.';
+                display: inline-block;
+                left: 0;
+                position: absolute;
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+:root {
+    // -----------------------------------------------------
+    // Font Sizes
+    // -----------------------------------------------------
+        --font-base: 1rem;
+
+        --h1: calc(var(--font-base) * 2.25);
+        --h2: calc(var(--font-base) * 1.95);
+        --h3: calc(var(--font-base) * 1.75);
+        --h4: calc(var(--font-base) * 1.5);
+        --h5: calc(var(--font-base) * 1.25);
+        --h6: calc(var(--font-base) * 1);
+
+        --font-small:       calc(var(--font-base) / 1.15);
+        --font-standard:    calc(var(--font-base) * 1);
+        --font-large:       calc(var(--font-base) * 1.25);
+        --font-mega:        calc(var(--font-base) * 2.5);
+        --font-giga:        calc(var(--font-base) * 4);
+        --font-ludicrous:   calc(var(--font-base) * 5);
+    // -----------------------------------------------------
+    
+    // -----------------------------------------------------
+    // Layout
+    // -----------------------------------------------------
+        --banner-offset: 100px;
+        --gutter-large: 20%;
+        --gutter-medium: 10%;
+        --gutter-navbar: 50px;
+        --gutter-profile: 5vw;
+        --gutter-small: 5%;
+        --section-spacing: #{$base-spacing * 4};
+    // -----------------------------------------------------
+}
+
+@include breakpoint(desktop) {
+    :root {
+        --font-giga: calc(var(--font-base) * 3);
+        --font-ludicrous: calc(var(--font-base) * 4);
+    }
+}
+
+@include breakpoint(laptop) {
+    :root {
+        --gutter-navbar: 5vw;
+    }
+}
+
+@include breakpoint(tablet) {
+    :root {
+        --font-giga: calc(var(--font-base) * 3);
+        --font-ludicrous: calc(var(--font-base) * 4);
+    }
+}
+
+@include breakpoint(mobile) {
+    :root {
+        --h1: calc(var(--font-base) * 2);
+        --h2: calc(var(--font-base) * 1.85);
+        --h3: calc(var(--font-base) * 1.75);
+        --h4: calc(var(--font-base) * 1.5);
+        --h5: calc(var(--font-base) * 1.5);
+        --h6: calc(var(--font-base) * 1.25);
+        --font-giga: calc(var(--font-base) * 2);
+        --font-ludicrous: calc(var(--font-base) * 3);
+        --gutter-navbar: 10vw;
+        --gutter-large: var(--gutter-navbar);
+        --gutter-medium: var(--gutter-navbar);
+        --gutter-small: var(--gutter-navbar);
+    }
+}
+
+.theme {
+    @each $theme_name, $settings in $themes {
+        &-#{$theme_name} {
+            @include get-theme($theme_name);
+        }
+    }
+}

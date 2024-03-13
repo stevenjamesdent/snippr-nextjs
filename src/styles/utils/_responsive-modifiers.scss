@@ -1,0 +1,20 @@
+@use '@/styles/settings' as *;
+@use 'breakpoint' as *;
+
+@mixin responsive-modifiers($selector) {
+    @content;
+
+    @each $breakpoint-name, $breakpoint-size in $breakpoints {
+        @include breakpoint($breakpoint-name, min) {
+            @at-root .#{$breakpoint-name}\:#{$selector} {
+                @content;
+            }
+        }
+
+        @include breakpoint($breakpoint-name) {
+            @at-root .max-#{$breakpoint-name}\:#{$selector} {
+                @content;
+            }
+        }
+    }
+}

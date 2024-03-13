@@ -1,0 +1,14 @@
+@use '@/styles/settings' as *;
+@use '@/styles/utils' as *;
+
+.container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $base-spacing;
+}
+
+.apple,
+.google {
+    height: 50px;
+}
